@@ -16,10 +16,7 @@ client.on('message', message => {
     if (message.content.startsWith(`${botconfig.prefix}${botconfig.command}`))
     {
         let parts = message.content.split(' ');
-        let command = parts[0];
-
-        // Remove the command from the array
-        parts.shift();
+        let command = parts.shift();
 
         if (parts.length < 2) {
             const embed = new Discord.RichEmbed()
@@ -31,22 +28,20 @@ client.on('message', message => {
             return;
         }
 
-        let page = parts[0];
-        
         // Remove the page number from the array.
-        parts.shift();
-
+        let page = parts.shift();
+        
         if (page in codebook.pages) {
             const embed = new Discord.RichEmbed()
                 .setTitle('Unknown page number')
                 .setColor(0xFF0000)
-                .setDescription('Specified page number does not seem to exist')
+                .setDescription('Specified page number (' + page + ') does not seem to exist')
 
             message.channel.send(embed);
             return;
         }
 
-        if (parts.length - 2 > codebook.pages[page].length) {
+        if (parts.length > codebook.pages[page].length) {
             const embed = new Discord.RichEmbed()
                 .setTitle('Message too long')
                 .setColor(0xFF0000)
