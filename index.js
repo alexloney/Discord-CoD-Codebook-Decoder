@@ -31,7 +31,7 @@ client.on('message', message => {
         // Remove the page number from the array.
         let page = parts.shift();
         
-        if (page in codebook.pages) {
+        if (!(page in codebook.pages)) {
             const embed = new Discord.RichEmbed()
                 .setTitle('Unknown page number')
                 .setColor(0xFF0000)
