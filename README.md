@@ -36,3 +36,16 @@ For each number you wrote, subtract the code number under it. In the above examp
 ```
 
 Looking at the bottom of the code book page, we see the mapping from number to letter. 
+
+# Notes
+Each letter had three possibilities for numbers that map to them, but I had noticed that it was really just an expanding of a modulus into standard integer. So I reduced my key file to simply modulus rather than expanding it.
+
+I assumed that the message would not be longer than the key, if this is a standard vigenere cipher, it will simply loop back around at the end. If we receive more messages and it happens to be longer, I'll add a little bit of code to loop around.
+
+I also decoded the example message that was in the provided instructions, it decoded to the following:
+
+```
+H E L L Q E V E R Y Q N E
+```
+
+I'm not sure if that means anything, as it does seem to kind of follow a pattern, as it says "hell" and "every" in it. Not sure if it has meaning for us yet.
