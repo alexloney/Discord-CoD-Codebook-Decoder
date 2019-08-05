@@ -54,9 +54,22 @@ client.on('message', message => {
         let decoded = [];
         let pos = 0;
         parts.forEach(item => {
-            decoded.push(item);
-            decoded[pos] = decoded[pos] - codebook.pages[page][pos];
-            decoded[pos] = codebook.key[decoded[pos]];
+            let letter = item;
+
+            // Subtract the codebook entry from the input
+            letter = letter - codebook.pages[page][pos];
+
+            // Instead of having -36, 0, 36 = 0, -35, 1, 37 = 1, etc.
+            // I'm just adding 36 to each entry to normalize it to be
+            // 0 or higher, then mod'ing it by 36.
+            letter = letter + 36;
+            letter = letter % 36;
+
+            // Lookup the letter in the codebook.
+            letter = codebook.key[letter];
+
+            // And store the decoded letter
+            decoded.push(letter);
 
             pos += 1;
         });
