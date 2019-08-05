@@ -67,8 +67,6 @@ client.on('message', message => {
             .setDescription(decoded.join(''));
         
         message.channel.send(embed);
-
-        console.log(decoded);
     }
 });
 
