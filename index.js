@@ -22,7 +22,7 @@ client.on('message', message => {
         parts.shift();
 
         if (parts.length < 2) {
-            const embed = new RichEmbed()
+            const embed = new Discord.RichEmbed()
                 .setTitle('Unable to parse message')
                 .setColor(0xFF0000)
                 .setDescription('Usage: ' + botconfig.prefix + botconfig.command + " PAGE MESSAGE");
@@ -37,7 +37,7 @@ client.on('message', message => {
         parts.shift();
 
         if (page in codebook.pages) {
-            const embed = new RichEmbed()
+            const embed = new Discord.RichEmbed()
                 .setTitle('Unknown page number')
                 .setColor(0xFF0000)
                 .setDescription('Specified page number does not seem to exist')
@@ -47,7 +47,7 @@ client.on('message', message => {
         }
 
         if (parts.length - 2 > codebook.pages[page].length) {
-            const embed = new RichEmbed()
+            const embed = new Discord.RichEmbed()
                 .setTitle('Message too long')
                 .setColor(0xFF0000)
                 .setDescription('The provided message appears to be to long')
@@ -66,7 +66,7 @@ client.on('message', message => {
             pos += 1;
         });
         
-        const embed = new RichEmbed()
+        const embed = new Discord.RichEmbed()
             .setTitle('Decoded Message')
             .setColor(0x00FF00)
             .setDescription(decoded.join(''));
