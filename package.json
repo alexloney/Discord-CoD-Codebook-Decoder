@@ -1,0 +1,10 @@
+{
+    "name": "cofd-codebook-decoder",
+    "version": "1.0.0",
+    "description": "Automate decoding of John's messages",
+    "main": "index.js",
+    "author": "Loney, Alex",
+    "dependencies": {
+        "discord.js": "^11.5.1"
+    }
+}
